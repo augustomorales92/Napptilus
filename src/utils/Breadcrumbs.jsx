@@ -1,8 +1,13 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useMatches } from "react-router-dom";
 
 
-const Breadcrumbs = ({ crumbs }) => {
+const Breadcrumbs = () => {
+    const matches = useMatches()
+    let crumbs = matches
+    .filter((match) => Boolean(match.handle?.crumb))
+    .map((match) => match.handle.crumb(match.data))
+    
     return (
                 <ol className="breadcrumb breadcrumb-dark bg-transparent navbar-breadcrumb">
                     {crumbs.map((crumb, index, key) =>

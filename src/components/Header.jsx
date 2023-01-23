@@ -1,23 +1,21 @@
 import React from 'react';
 import Breadcrumbs from '../utils/Breadcrumbs';
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import usePersistentCart from '../hooks/UsePersistCart'
 
 const Header = () => {
-    const location = useLocation();
     const navigate = useNavigate()
     const [value] = usePersistentCart('cart-items');
-    const pathArr = location.pathname?.split('/').filter(e => e)
     
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary navbar-light bg-light d-flex justify-content-around" >
             <div className="container navbar-container">
                 <div className='d-flex flex-column'>
-                    <div className="navbar-brand" onClick={() => navigate('/home')}>
+                    <div className="navbar-brand" onClick={() => navigate('/')}>
                         <img src="https://spokephone.com/wp-content/uploads/2020/08/spoke_phone_horizontal_logo_2x.png" alt="Logo" width="auto" height="40" className="d-inline-block align-text-top" />
                     </div>
-                    <div className="navbar-text d-inline-block" style={{ height: '25px' }}>
-                        <Breadcrumbs crumbs={pathArr} />
+                    <div className="navbar-text d-inline-block Breadcrumbs-height" >
+                        <Breadcrumbs />
                     </div>
                 </div>
                 <div className="btn btn-dark position-relative">
