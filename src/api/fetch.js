@@ -1,6 +1,8 @@
+import { BASE_API_URL } from "./config"
+
 export const getDataById = async (id) => {
   const res = await fetch(
-    `https://2gm2eu9uuw.us-east-1.awsapprunner.com/api/product/${id}`
+    `${BASE_API_URL}/product/${id}`
   )
   const data = await res.json()
   return data
@@ -8,7 +10,7 @@ export const getDataById = async (id) => {
 
 export const getAllData = async () => {
   const res = await fetch(
-    'https://2gm2eu9uuw.us-east-1.awsapprunner.com/api/product'
+    `${BASE_API_URL}/product`
   )
   const data = await res.json()
   return data
@@ -22,7 +24,7 @@ export const postData = async (productCart) => {
   }
 
   const res = await fetch(
-    'https://2gm2eu9uuw.us-east-1.awsapprunner.com/api/cart',
+    `${BASE_API_URL}/cart`,
     requestOptions
   )
   const data = await res.json()
