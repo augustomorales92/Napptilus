@@ -1,17 +1,13 @@
-import { BASE_API_URL } from "./config"
+import { BASE_API_URL } from './config'
 
 export const getDataById = async (id) => {
-  const res = await fetch(
-    `${BASE_API_URL}/product/${id}`
-  )
+  const res = await fetch(`${BASE_API_URL}/product/${id}`)
   const data = await res.json()
   return data
 }
 
 export const getAllData = async () => {
-  const res = await fetch(
-    `${BASE_API_URL}/product`
-  )
+  const res = await fetch(`${BASE_API_URL}/product`)
   const data = await res.json()
   return data
 }
@@ -23,10 +19,7 @@ export const postData = async (productCart) => {
     body: JSON.stringify(productCart)
   }
 
-  const res = await fetch(
-    `${BASE_API_URL}/cart`,
-    requestOptions
-  )
+  const res = await fetch(`${BASE_API_URL}/cart`, requestOptions)
   const data = await res.json()
   return data
 }
