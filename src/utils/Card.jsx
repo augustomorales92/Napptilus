@@ -6,7 +6,7 @@ const Card = ({id,imgUrl, brand, model, price}) => {
 
     return (
       <div key={id} className="col mt-2 mb-2" >
-      <div className="card text-bg-dark card-general" >
+      <div className="card text-bg-dark white-shadow" >
         <img src={imgUrl} className="card-img-top img-thumbnail" alt="product_image" style={{padding:'10%'}} loading="lazy" />
         <div className="card-body ">
           <div style={{height:'6rem'}}>

@@ -11,9 +11,9 @@ export default function usePersistentCart(key) {
     (value) => setWithExpiry(key,value,timeToExpire),
     {
       onMutate: (mutatedData) => {
-        console.log(mutatedData)
         const current = data;
-        queryClient.setQueryData(key, mutatedData);
+        const totalData = mutatedData ?  mutatedData + data : mutatedData
+        queryClient.setQueryData(key, totalData);
         return current;
       },
       onError: (_, __, rollback) => {

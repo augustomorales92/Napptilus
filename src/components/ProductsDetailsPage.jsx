@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useParams, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 import usePersistentCart from '../hooks/UsePersistCart'
 import LoadingSpinner from '../utils/LoadingSpinner';
@@ -10,6 +9,8 @@ import Error from '../utils/Error';
 import TableBody from '../utils/Table';
 import { setCartItemsNumber } from '../helpers/helpers';
 import { getDataById } from '../api/fetch';
+import { ArrowLeft, ShoppingCart } from '../utils/Icons';
+import { warnToast, successToast } from '../helpers/toasts';
 
 
 const ProductsDetailsPage = () => {
@@ -36,6 +37,8 @@ const ProductsDetailsPage = () => {
         }
     }, [status, product]);
 
+
+
     const changeColor = (e) => {
         const color = e.target.value
         setProductCart({ ...productCart, colorCode: color })
@@ -56,10 +59,10 @@ const ProductsDetailsPage = () => {
             <div className="row row-cols-1 table-responsive m-4 table-responsive-{sm | md | lg | xl | xxl}">
                 <div className="card text-bg-dark cardMobile">
                     <div className="col" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <img src={product?.imgUrl} className="img-thumbnail" alt='img' style={{ height: '80%', width: 'auto' }} />
+                        <img src={product?.imgUrl} className="img-thumbnail white-shadow" alt='img' style={{ height: '80%', width: 'auto' }} />
                     </div>
                     <div className="col mx-auto ">
-                        <table className="table table-bordered table-dark mt-4">
+                        <table className="table table-bordered table-dark mt-4 white-shadow">
                             <thead>
                                 <tr>
                                     <th colSpan={2}>Description</th>
@@ -81,7 +84,7 @@ const ProductsDetailsPage = () => {
                             </tbody>
                         </table>
                         <div className="d-flex justify-content-around align-items-center">
-                            <select className="form-select rem-12"  aria-label="Floating label select example" onChange={changeColor}>
+                            <select className="form-select rem-12" aria-label="Floating label select example" onChange={changeColor}>
                                 {product?.options?.colors?.map((color, index) =>
                                     <option key={index} value={color.code}  >{color.name}</option>
                                 )}
@@ -93,22 +96,17 @@ const ProductsDetailsPage = () => {
                             </select>
                         </div>
                         <div className='d-flex justify-content-around align-items-center'>
-                            <button className="btn btn-outline-light mt-4 mw-100 mb-4 rem-12" onClick={()=> navigate('/')}>
-                                Back to Home
+                            <button className=" d-flex justify-content-around btn btn-outline-light mt-4 mw-100 mb-4 rem-12 back-home " onClick={() => navigate('/')}>
+                                <ArrowLeft /> Back to Home
                             </button>
-                            <button type="button" className="btn btn-outline-light mt-4 mw-100 mb-4 rem-12" onClick={async () => {
-                                await setCartItemsNumber(productCart, value, setValue)
-                                toast.success('product added to cart!', {
-                                    position: "bottom-right",
-                                    autoClose: 3000,
-                                    hideProgressBar: false,
-                                    closeOnClick: true,
-                                    pauseOnHover: true,
-                                    draggable: true,
-                                    progress: undefined,
-                                    theme: "dark",
-                                })
-                            }}>Add to cart</button>
+                            <button type="button" className="d-flex justify-content-around btn btn-outline-success mt-4 mw-100 mb-4 rem-12 " onClick={async () => {
+                                const activeCart = await setCartItemsNumber(productCart, setValue)
+                                if (activeCart === 'expired') {
+                                    warnToast('cart expired!')
+                                } else {
+                                    successToast('product added to cart!')
+                                }
+                            }}> Add to cart <ShoppingCart /> </button>
                         </div>
                     </div>
                 </div>

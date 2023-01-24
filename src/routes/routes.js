@@ -11,7 +11,7 @@ export const router = createBrowserRouter(
         }}
         />
         <Route exact path="/:id" element={<ProductsDetailsPage />} handle={{
-          crumb: () => <Link to="/">Home / Product</Link>
+          crumb: () => [<Link to='/'>Home</Link>,' / ',<Link >Product</Link>]
         }} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
