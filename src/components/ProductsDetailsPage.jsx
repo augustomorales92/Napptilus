@@ -4,13 +4,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 
 import usePersistentCart from '../hooks/UsePersistCart'
-import LoadingSpinner from '../utils/LoadingSpinner';
-import Error from '../utils/Error';
-import TableBody from '../utils/Table';
+import LoadingSpinner from './pages/LoadingSpinner';
+import Error from './pages/Error';
+import TableBody from './pages/Table';
 import { setCartItemsNumber } from '../helpers/helpers';
 import { getDataById } from '../api/fetch';
-import { ArrowLeft, ShoppingCart } from '../utils/Icons';
-import { warnToast, successToast } from '../helpers/toasts';
+import { ArrowLeft, ShoppingCart } from './pages/Icons';
+import { warnToast, successToast } from '../utils/toasts';
 
 
 const ProductsDetailsPage = () => {
@@ -20,6 +20,14 @@ const ProductsDetailsPage = () => {
     const [value, setValue] = usePersistentCart('cart-items');
     const { data: product, error, isLoading, status } = useQuery(['phones', params?.id], () => getDataById(params?.id))
 
+    const addToCart = async () => {
+        const activeCart = await setCartItemsNumber(productCart, setValue)
+        if (activeCart === 'expired') {
+            warnToast('cart expired!')
+        } else {
+            successToast('product added to cart!')
+        }
+    }
 
     useEffect(() => {
         if (status === 'success') {
@@ -99,14 +107,7 @@ const ProductsDetailsPage = () => {
                             <button className=" d-flex justify-content-around btn btn-outline-light mt-4 mw-100 mb-4 rem-12 back-home " onClick={() => navigate('/')}>
                                 <ArrowLeft /> Back to Home
                             </button>
-                            <button type="button" className="d-flex justify-content-around btn btn-outline-success mt-4 mw-100 mb-4 rem-12 " onClick={async () => {
-                                const activeCart = await setCartItemsNumber(productCart, setValue)
-                                if (activeCart === 'expired') {
-                                    warnToast('cart expired!')
-                                } else {
-                                    successToast('product added to cart!')
-                                }
-                            }}> Add to cart <ShoppingCart /> </button>
+                            <button type="button" className="d-flex justify-content-around btn btn-outline-success mt-4 mw-100 mb-4 rem-12 " onClick={addToCart}> Add to cart <ShoppingCart /> </button>
                         </div>
                     </div>
                 </div>

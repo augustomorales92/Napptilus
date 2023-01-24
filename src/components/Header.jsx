@@ -1,6 +1,6 @@
 import React from 'react';
-import Breadcrumbs from '../utils/Breadcrumbs';
-import { ShoppingCart } from '../utils/Icons';
+import Breadcrumbs from './pages/Breadcrumbs';
+import { ShoppingCart } from './pages/Icons';
 import { useNavigate } from 'react-router-dom'
 import usePersistentCart from '../hooks/UsePersistCart'
 

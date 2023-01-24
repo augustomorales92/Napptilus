@@ -11,7 +11,7 @@ const Breadcrumbs = () => {
     return (
         <ol className="breadcrumb breadcrumb-dark bg-transparent navbar-breadcrumb">
             {crumbs.map((crumb, index) =>
-                    <li key={index} className="breadcrumb-item active fw-bold text-decoration-none" aria-current="page">{crumb}</li> 
+                <li key={index} className="breadcrumb-item active fw-bold text-decoration-none" aria-current="page">{crumb}</li>
             )}
         </ol>
 

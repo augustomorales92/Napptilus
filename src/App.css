@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -17,42 +16,47 @@
 .App-link {
   color: #61dafb;
 }
-.Breadcrumbs-height{
+.Breadcrumbs-height {
   height: 25px;
 }
-.rem-12{
-  width: 12rem; 
+.rem-12 {
+  width: 12rem;
 }
 
 .white-shadow {
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
   text-align: center;
 }
 
 .button:after {
-  content: "";
-  background: #FFFAFA;
+  content: '';
+  background: #fffafa;
   display: block;
   position: absolute;
   padding-top: 300%;
   padding-left: 350%;
-  margin-left: -20px!important;
+  margin-left: -20px !important;
   margin-top: -120%;
   opacity: 0;
-  transition: all 0.8s
+  transition: all 0.8s;
 }
 
 .button:active:after {
   padding: 0;
   margin: 0;
   opacity: 1;
-  transition: 0s
+  transition: 0s;
 }
 
-@media (min-width: 576px) and (max-width:992px) {  
-  .cardMobile {flex-direction: column;}
+@media (min-width: 576px) and (max-width: 992px) {
+  .cardMobile {
+    flex-direction: column;
+  }
 }
 
-@media (min-width: 992px)  { 
-  .cardMobile {flex-direction: row;}
- }
+@media (min-width: 992px) {
+  .cardMobile {
+    flex-direction: row;
+  }
+}

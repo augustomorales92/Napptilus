@@ -5,7 +5,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query'
-import { router } from './routes/routes';
+import { router } from './routes';
 const queryClient = new QueryClient()
 
 
