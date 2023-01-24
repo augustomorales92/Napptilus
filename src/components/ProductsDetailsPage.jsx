@@ -7,7 +7,7 @@ import usePersistentCart from '../hooks/UsePersistCart'
 import LoadingSpinner from './pages/LoadingSpinner';
 import Error from './pages/Error';
 import TableBody from './pages/Table';
-import { setCartItemsNumber } from '../helpers/helpers';
+import { setCartItems } from '../utils/setCartItems';
 import { getDataById } from '../api/fetch';
 import { ArrowLeft, ShoppingCart } from './pages/Icons';
 import { warnToast, successToast } from '../utils/toasts';
@@ -21,7 +21,7 @@ const ProductsDetailsPage = () => {
     const { data: product, error, isLoading, status } = useQuery(['phones', params?.id], () => getDataById(params?.id))
 
     const addToCart = async () => {
-        const activeCart = await setCartItemsNumber(productCart, setValue)
+        const activeCart = await setCartItems(productCart, setValue)
         if (activeCart === 'expired') {
             warnToast('cart expired!')
         } else {

@@ -1,4 +1,4 @@
-import { postData } from '../api/fetch'
+export const timeToExpire = 3600000
 
 export const setWithExpiry = (key, value, ttl) => {
   const now = new Date()
@@ -8,8 +8,6 @@ export const setWithExpiry = (key, value, ttl) => {
   }
   localStorage.setItem(key, JSON.stringify(item))
 }
-
-export const timeToExpire = 3600000
 
 export const getWithExpiry = (key) => {
   const itemStr = localStorage.getItem(key)
@@ -23,16 +21,4 @@ export const getWithExpiry = (key) => {
     return 'expired'
   }
   return item.value
-}
-
-export const setCartItemsNumber = async (productCart, setValue) => {
-  const res = await postData(productCart)
-  const responseNumber = res?.count
-  const activeCart = getWithExpiry('cart-items')
-  if (activeCart !== 'expired') {
-    setValue(responseNumber)
-  } else {
-    setValue(0)
-    return activeCart
-  }
 }
