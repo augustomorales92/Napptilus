@@ -21,7 +21,7 @@ const ProductsDetailsPage = () => {
     const { data: product, error, isLoading, status } = useQuery(['phones', params?.id], () => getDataById(params?.id))
 
     const addToCart = async () => {
-        const activeCart = await setCartItems(productCart, setValue)
+        const activeCart = await setCartItems(productCart, value,setValue)
         if (activeCart === 'expired') {
             warnToast('cart expired!')
         } else {

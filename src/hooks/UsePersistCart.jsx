@@ -12,8 +12,7 @@ export default function usePersistentCart(key) {
     {
       onMutate: (mutatedData) => {
         const current = data;
-        const totalData = mutatedData ? mutatedData + data : mutatedData
-        queryClient.setQueryData(key, totalData);
+        queryClient.setQueryData(key, mutatedData);
         return current;
       },
       onError: (_, __, rollback) => {
