@@ -3,7 +3,7 @@
 Application created with create-react-app for the Napptilus coding challenge.
 
 
-Installation:
+## Installation:
 
 `npm install`  
 
@@ -59,7 +59,7 @@ Check and show any lint errors in the console.
 
 ## How to use
 
-visit the application at [localhost:3000/] and a list of phones will be displayed, choose one to see more details.
+visit the application at `localhost:3000/` and a list of phones will be displayed, choose one to see more details.
 
 On the screen of the specific phone, it will show many details about it and options to select by color and memory capacity, also if you wish, you can add it to the product cart.
 
