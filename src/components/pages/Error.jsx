@@ -9,7 +9,7 @@ const ErrorModal = () => {
         }}>
             <h4 className="alert-heading">Error!</h4>
             <hr />
-            <p>¡Oops! Algo salió mal, por favor recargue la pagina e intente nuevamente.</p>
+            <p>¡Oops! Something went wrong, please refresh to try again.</p>
         </div>
 
     );
