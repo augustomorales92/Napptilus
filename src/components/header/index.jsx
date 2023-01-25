@@ -1,8 +1,8 @@
 import React from 'react';
-import Breadcrumbs from './pages/Breadcrumbs';
-import { ShoppingCart } from './pages/Icons';
+import Breadcrumbs from './Breadcrumbs';
+import { ShoppingCart } from '../pages/Icons';
 import { useNavigate } from 'react-router-dom'
-import usePersistentCart from '../hooks/UsePersistCart'
+import usePersistentCart from '../../hooks/UsePersistCart'
 
 const Header = () => {
     const navigate = useNavigate()

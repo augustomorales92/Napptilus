@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { useQuery } from 'react-query';
-import LoadingSpinner from './pages/LoadingSpinner';
-import Card from './pages/Card';
-import Error from './pages/Error';
-import SearchBar from './pages/SearchBar';
-import { getAllData } from '../api/fetch';
+import LoadingSpinner from '../pages/LoadingSpinner';
+import Card from './Card';
+import Error from '../pages/Error';
+import SearchBar from './SearchBar';
+import { getAllData } from '../../api/fetch';
 
 
 const ProductListPage = () => {

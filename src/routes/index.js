@@ -5,8 +5,8 @@ import {
   createBrowserRouter,
   createRoutesFromElements
 } from 'react-router-dom'
-import ProductListPage from '../components/ProductListPage'
-import ProductsDetailsPage from '../components/ProductsDetailsPage'
+import ProductListPage from '../components/productListPage'
+import ProductsDetailsPage from '../components/productsDetailsPage'
 import RootLayout from '../layouts/RootLayout'
 
 export const router = createBrowserRouter(

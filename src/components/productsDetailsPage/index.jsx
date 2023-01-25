@@ -3,14 +3,14 @@ import { useQuery } from 'react-query';
 import { useParams, useNavigate } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 
-import usePersistentCart from '../hooks/UsePersistCart'
-import LoadingSpinner from './pages/LoadingSpinner';
-import Error from './pages/Error';
-import TableBody from './pages/Table';
-import { setCartItems } from '../utils/setCartItems';
-import { getDataById } from '../api/fetch';
-import { ArrowLeft, ShoppingCart } from './pages/Icons';
-import { warnToast, successToast } from '../utils/toasts';
+import usePersistentCart from '../../hooks/UsePersistCart'
+import LoadingSpinner from '../pages/LoadingSpinner';
+import Error from '../pages/Error';
+import { setCartItems } from '../../utils/setCartItems';
+import { getDataById } from '../../api/fetch';
+import { ArrowLeft, ShoppingCart } from '../pages/Icons';
+import { warnToast, successToast } from '../../utils/toasts';
+import Table from './Table';
 
 
 const ProductsDetailsPage = () => {
@@ -21,7 +21,7 @@ const ProductsDetailsPage = () => {
     const { data: product, error, isLoading, status } = useQuery(['phones', params?.id], () => getDataById(params?.id))
 
     const addToCart = async () => {
-        const activeCart = await setCartItems(productCart, value,setValue)
+        const activeCart = await setCartItems(productCart, value, setValue)
         if (activeCart === 'expired') {
             warnToast('cart expired!')
         } else {
@@ -44,8 +44,6 @@ const ProductsDetailsPage = () => {
             })
         }
     }, [status, product]);
-
-
 
     const changeColor = (e) => {
         const color = e.target.value
@@ -70,27 +68,7 @@ const ProductsDetailsPage = () => {
                         <img src={product?.imgUrl} className="img-thumbnail white-shadow" alt='img' style={{ height: '80%', width: 'auto' }} />
                     </div>
                     <div className="col mx-auto ">
-                        <table className="table table-bordered table-dark mt-4 white-shadow">
-                            <thead>
-                                <tr>
-                                    <th colSpan={2}>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <TableBody property={'brand'} value={product?.brand} />
-                                <TableBody property={'model'} value={product?.model} />
-                                <TableBody property={'price'} value={`$${product?.price}`} />
-                                <TableBody property={'cpu'} value={product?.cpu} />
-                                <TableBody property={'ram'} value={product?.ram} />
-                                <TableBody property={'os'} value={product?.os} />
-                                <TableBody property={'brand'} value={product?.displayResolution} />
-                                <TableBody property={'battery'} value={product?.battery} />
-                                <TableBody property={'camera'} value={Array.isArray(product?.primaryCamera) && product?.primaryCamera?.length ? product?.primaryCamera?.join(' ') : product?.primaryCamera} />
-                                <TableBody property={'frontal camera'} value={product?.secondaryCmera} />
-                                <TableBody property={'dimentions'} value={product?.dimentions} />
-                                <TableBody property={'weight'} value={product?.weight} />
-                            </tbody>
-                        </table>
+                        <Table product={product} />
                         <div className="d-flex justify-content-around align-items-center">
                             <select className="form-select rem-12" aria-label="Floating label select example" onChange={changeColor}>
                                 {product?.options?.colors?.map((color, index) =>
