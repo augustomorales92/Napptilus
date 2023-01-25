@@ -3,7 +3,7 @@
 Application created with create-react-app for the Napptilus coding challenge.
 
 
-## Installation:
+## Installation
 
 `npm install`  
 
