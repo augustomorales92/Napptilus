@@ -5,13 +5,13 @@ export default function usePersistentCart(key) {
 
   const queryClient = useQueryClient();
 
-  const { data } = useQuery(key, () => getWithExpiry(key) || 0);
+  const { data:value } = useQuery(key, () => getWithExpiry(key) || 0);
 
   const { mutateAsync: setValue } = useMutation(
     (value) => setWithExpiry(key, value, timeToExpire),
     {
       onMutate: (mutatedData) => {
-        const current = data;
+        const current = value;
         queryClient.setQueryData(key, mutatedData);
         return current;
       },
@@ -21,5 +21,5 @@ export default function usePersistentCart(key) {
     }
   );
 
-  return [data, setValue];
+  return [value, setValue];
 }
