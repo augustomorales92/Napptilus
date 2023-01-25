@@ -5,7 +5,7 @@ export default function usePersistentCart(key) {
 
   const queryClient = useQueryClient();
 
-  const { data:value } = useQuery(key, () => getWithExpiry(key) || 0);
+  const { data: value } = useQuery(key, () => getWithExpiry(key) || 0);
 
   const { mutateAsync: setValue } = useMutation(
     (value) => setWithExpiry(key, value, timeToExpire),

@@ -2,18 +2,17 @@
 
 Application created with create-react-app for the Napptilus coding challenge.
 
-
 ## Installation
 
-`npm install`  
+`npm install`
 
-To Run Test Suite:  
+To Run Test Suite:
 
-`npm test`  
+`npm test`
 
 To Start Server:
 
-`npm start`  
+`npm start`
 
 To check error whit linter:
 
@@ -25,9 +24,7 @@ To Build the app to be deployed:
 
 To Visit App:
 
-`localhost:3000/`  
-
-
+`localhost:3000/`
 
 ## Available Scripts
 
@@ -55,7 +52,6 @@ Your app is ready to be deployed!
 ### `npm run lint`
 
 Check and show any lint errors in the console.
-
 
 ## How to use
 

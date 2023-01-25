@@ -1,7 +1,7 @@
 import { postData } from '../api/fetch'
 import { getWithExpiry } from './ExpiryFuntions'
 
-export const setCartItems = async (productCart, value,setValue) => {
+export const setCartItems = async (productCart, value, setValue) => {
   const res = await postData(productCart)
   const responseValue = res?.count
   const currentValue = value
