@@ -64,8 +64,8 @@ const ProductsDetailsPage = () => {
         <div className="container mt-4">
             <div className="row row-cols-1 table-responsive m-4 table-responsive-{sm | md | lg | xl | xxl}">
                 <div className="card text-bg-dark cardMobile">
-                    <div className="col" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <img src={product?.imgUrl} className="img-thumbnail white-shadow" alt='img' style={{ height: '80%', width: 'auto' }} />
+                    <div className="d-flex justify-content-center  align-items-center col" >
+                        <img src={product?.imgUrl} className="img-thumbnail white-shadow imageSize" alt='img' />
                     </div>
                     <div className="col mx-auto ">
                         <Table product={product} />

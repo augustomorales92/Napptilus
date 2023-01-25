@@ -7,9 +7,9 @@ const Card = ({ id, imgUrl, brand, model, price }) => {
   return (
     <div key={id} className="col mt-2 mb-2" >
       <div className="card text-bg-dark white-shadow" >
-        <img src={imgUrl} className="card-img-top img-thumbnail" alt="product_image" style={{ padding: '10%' }} loading="lazy" />
+        <img src={imgUrl} className="card-img-top img-thumbnail p10" alt="product_image" loading="lazy" />
         <div className="card-body ">
-          <div style={{ height: '6rem' }}>
+          <div className='height6rem'>
             <h4 className="card-title">{brand}</h4>
             <h6 className="card-subtitle mb-2 ">{model}</h6>
           </div>
