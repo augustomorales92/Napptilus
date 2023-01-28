@@ -3,7 +3,7 @@ import { getWithExpiry } from './ExpiryFuntions'
 
 export const setCartItems = async (productCart, value, setValue) => {
   const res = await postData(productCart)
-  const responseValue = res?.count
+  const responseValue = res.count
   const currentValue = value
   const totalValue = currentValue + responseValue
   const activeCart = getWithExpiry('cart-items')

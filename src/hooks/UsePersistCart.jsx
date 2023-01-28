@@ -22,4 +22,5 @@ export default function usePersistentCart(key) {
   );
 
   return [value, setValue];
+
 }
