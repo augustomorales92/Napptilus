@@ -15,7 +15,7 @@ const Card = ({ id, imgUrl, brand, model, price }) => {
           </div>
           <div className="buy d-flex justify-content-between align-items-center " >
             <div className="price text-light mr-5" ><h5 className="mt-4" >{price ? `$${price}` : 'Out of stock'}</h5></div>
-            <div className="btn btn-outline-light mt-3" onClick={() => navigate(`/products/${id}`)} ><i className="fas fa-shopping-cart"></i> Details</div>
+            <div role="button" tabIndex={0} className="btn btn-outline-light mt-3" onClick={() => navigate(`/products/${id}`)} ><i className="fas fa-shopping-cart"></i> Details</div>
           </div>
         </div>
       </div>
