@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const ErrorFallback = ({ resetErrorBoundary }) => (
     <div>
@@ -8,4 +8,4 @@ const ErrorFallback = ({ resetErrorBoundary }) => (
     </div>
 )
 
-export default ErrorFallback;
+export default ErrorFallback

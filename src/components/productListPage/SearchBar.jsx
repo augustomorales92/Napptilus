@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const SearchBar = ({ search, setSearch }) => {
   return (
@@ -12,4 +12,4 @@ const SearchBar = ({ search, setSearch }) => {
   )
 }
 
-export default SearchBar;
+export default SearchBar

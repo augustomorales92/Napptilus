@@ -1,28 +1,23 @@
 module.exports = {
-  parserOptions: {
-    parser: '@babel/eslint-parser',
-    requireConfigFile: false,
-    ecmaVersion: 'latest',
-    sourceType: 'module'
-  },
   env: {
     browser: true,
-    node: true,
-    es6: true,
-    jest: true
+    es2021: true,
+    node: true
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended'
-  ],
-  plugins: ['react', 'react-hooks', 'jsx-a11y'],
+  extends: ['plugin:react/recommended', 'standard'],
+  overrides: [],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    requireConfigFile: false,
+    parser: '@babel/eslint-parser'
+  },
+  plugins: ['react', 'react-hooks'],
   rules: {
     strict: 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react/prop-types': 0,
-    'jsx-a11y/click-events-have-key-events': 'off'
+    'react/prop-types': 0
   },
   settings: {
     react: {

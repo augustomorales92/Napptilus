@@ -1,11 +1,10 @@
-import React, { useState, useCallback } from 'react';
-import { useQuery } from 'react-query';
-import LoadingSpinner from '../pages/LoadingSpinner';
-import Card from './Card';
-import Error from '../pages/Error';
-import SearchBar from './SearchBar';
-import { getAllData } from '../../api/fetch';
-
+import React, { useState, useCallback } from 'react'
+import { useQuery } from 'react-query'
+import LoadingSpinner from '../pages/LoadingSpinner'
+import Card from './Card'
+import Error from '../pages/Error'
+import SearchBar from './SearchBar'
+import { getAllData } from '../../api/fetch'
 
 const ProductListPage = () => {
   const { data: products, error, isLoading } = useQuery(['phones'], getAllData)
@@ -35,7 +34,7 @@ const ProductListPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductListPage;
+export default ProductListPage
