@@ -12,7 +12,7 @@ module.exports = {
     requireConfigFile: false,
     parser: '@babel/eslint-parser'
   },
-  plugins: ['react', 'react-hooks'],
+  plugins: ['react', 'react-hooks', 'prettier'],
   rules: {
     strict: 0,
     'react-hooks/rules-of-hooks': 'error',
