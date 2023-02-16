@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  FontAwesomeIcon,
-  faShoppingCart,
-  faArrowLeft
-} from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 export const ShoppingCart = () => {
   return (
